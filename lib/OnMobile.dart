@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'OnMobileChat.dart';
 class OnMobile  extends StatefulWidget {
  
 
@@ -191,8 +193,9 @@ class  OnMobileState extends State<OnMobile> {
                 ),
                 onPressed: ()
                  {  
-                   
-                },
+                   Navigator.push(
+              context,MaterialPageRoute(builder: (context) => OnMobileChat()),
+                   );},
                                      
                 child: Text ("Submit",),
                ),      
