@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Home.dart';
+import '../Screens/Home.dart';
 import 'Signup.dart';
 
 class Login extends StatefulWidget {
@@ -142,6 +142,7 @@ class _LoginState extends State<Login> {
               decoration: InputDecoration(
               hintText:'Email',
               icon:Icon(Icons.account_box)
+              
             ),
           
   ),

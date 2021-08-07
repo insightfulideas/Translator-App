@@ -11,13 +11,28 @@ class OnMobile  extends StatefulWidget {
 
 
 class  OnMobileState extends State<OnMobile> {   
+ 
    var _formKey = GlobalKey<FormState>();
    
    String dropdownvalue = 'English';
    String dropdownvalue2 = 'Urdu';
   var items =  ['Urdu','English','Chinese',];
   
-  
+  String chatRoomId(String person1, String person2)
+{ if (person1[0].toLowerCase().codeUnits[0]> 
+    person2.toLowerCase().codeUnits[0]){
+      return"$person1$person2";
+
+    }
+   else{
+     return "$person2$person1";
+   }
+    
+    
+    
+
+
+}  
    
 
   @override

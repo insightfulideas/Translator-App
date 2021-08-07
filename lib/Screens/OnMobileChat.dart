@@ -9,7 +9,13 @@ class OnMobileChat  extends StatefulWidget {
 
 
 
-class  OnMobileChatState extends State<OnMobileChat> {   
+class  OnMobileChatState extends State<OnMobileChat> {
+  late final Map<String, dynamic> userMap;
+  late final String chatRoomId;
+
+ // OnMobileChat({this.chatRoomId, this.userMap});
+
+  final TextEditingController msg = TextEditingController();
   // var _formKey = GlobalKey<FormState>();
     @override
   Widget build(BuildContext context) {
@@ -39,8 +45,30 @@ class  OnMobileChatState extends State<OnMobileChat> {
       
             ),
           
-           body:Container(),
-        bottomNavigationBar:Container(
+           body:SingleChildScrollView(child: Column(children: [
+           Container(
+             height: size.height/ 1.25,
+             width: size.width,
+             child:StreamBuilder(
+                
+                builder: (BuildContext context,
+                    AsyncSnapshot snapshot) {
+                  if (snapshot.data != null) {
+                    return ListView.builder(
+                      itemCount: snapshot.data.docs.length,
+                      itemBuilder: (context, index) {
+                       
+                        return Text(snapshot.data.docs[index]['message']);
+                      },
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+            ),
+           
+       Container(
            height: size.height /10,
            width: size.width,
              alignment: Alignment.center,
@@ -53,11 +81,12 @@ class  OnMobileChatState extends State<OnMobileChat> {
             width:size.width/1.1,
              
              child:Row(children: [
-
+               Container(width: 8,),
                Container(
                  height: size.height /1.5,
-                 width: size.width/1.5,
-                 child: TextField(
+                 width: size.width/1.3,
+                 child: TextField( 
+                   controller: msg,
                    decoration: InputDecoration(
                      border: OutlineInputBorder(
                        borderRadius: BorderRadius.circular(8),
@@ -73,7 +102,7 @@ class  OnMobileChatState extends State<OnMobileChat> {
     
        
         
-         );
+           ])));
        
     
      

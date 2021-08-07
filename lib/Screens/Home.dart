@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:translator_app/Dictionary.dart';
+import 'package:translator_app/Screens/Dictionary.dart';
 
 import 'Chat.dart';
 import 'OnMobile.dart';
